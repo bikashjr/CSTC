@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Form</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <form id="billingForm">
+        <label for="totalInput">Initial Total <span style="color: red">*</span>:</label>
+        <input type="number" id="totalInput" name="totalInput" placeholder="Enter initial total" />
+
+
+        <label for="internet">Internet:</label>
+        <input type="number" id="internet" name="internet" readonly />
+
+        <label for="serviceCharges">Service Charges:</label>
+        <input type="number" id="serviceCharges" name="serviceCharges" readonly />
+
+        <label for="tsc">TSC (10% of Service Charges):</label>
+        <input type="number" id="tsc" name="tsc" readonly />
+
+        <label for="vat">VAT (13% of above three):</label>
+        <input type="number" id="vat" name="vat" readonly />
+
+        <label for="abc">Other Expense:</label>
+        <input type="number" id="abc" name="abc" placeholder="Enter other expense" />
+
+        <label for="xyz">Other Expense:</label>
+        <input type="number" id="xyz" name="xyz" placeholder="Enter other expense" />
+
+        <label for="finalTotal">Final Total:</label>
+        <input type="number" id="finalTotal" name="finalTotal" readonly />
+
+        <button type="button" onclick="calculateFieldsFromTotal()">Calculate</button>
+    </form>
+</body>
+
+</html>
