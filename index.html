@@ -1,43 +1,123 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billing Form</title>
-    <script src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <!-- <style>
+        .container {
+            display: flex;
+            gap: 40px;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        form {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+        }
+        input, button {
+            padding: 5px;
+            margin-top: 5px;
+        }
+        table {
+            margin-top: 10px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 5px;
+            text-align: center;
+        }
+    </style> -->
 </head>
 
 <body>
-    <form id="billingForm">
-        <label for="totalInput">Initial Total <span style="color: red">*</span>:</label>
-        <input type="number" id="totalInput" name="totalInput" placeholder="Enter initial total" />
+    <div class="container">
+        <form id="billingFormLeft">
+            <label for="dateFrom">Date From:</label>
+            <input type="date" id="dateFrom" name="dateFrom" />
+
+            <label for="dateTo">Date To:</label>
+            <input type="date" id="dateTo" name="dateTo" />
+
+            <label for="initialTotal">Initial Total <span style="color: red">*</span>:</label>
+            <input type="number" id="initialTotal" name="initialTotal" placeholder="Enter initial total" />
+
+            <label for="internet">Internet:</label>
+            <input type="number" id="internet" name="internet" readonly />
+
+            <label for="serviceCharges">Service Charges:</label>
+            <input type="number" id="serviceCharges" name="serviceCharges" readonly />
+
+            <label for="tsc">TSC (10% of Service Charges):</label>
+            <input type="number" id="tsc" name="tsc" readonly />
+
+            <label for="vat">VAT (13% of above three):</label>
+            <input type="number" id="vat" name="vat" readonly />
+
+            <label for="abc">Other Expense:</label>
+            <input type="number" id="abc" name="abc" placeholder="Enter other expense" />
+
+            <label for="xyz">Other Expense:</label>
+            <input type="number" id="xyz" name="xyz" placeholder="Enter other expense" />
+
+            <label for="totalIncome">Total Income:</label>
+            <input type="number" id="totalIncome" name="totalIncome" readonly />
+
+            <label for="finalTotal">Final Total:</label>
+            <input type="number" id="finalTotal" name="finalTotal" readonly />
+
+            <button type="button" onclick="calculateFieldsFromTotal()">Calculate</button>
+        </form>
+
+        <form id="billingFormRight">
+            <label for="daysCount">Total Days:</label>
+            <input type="number" id="daysCount" name="daysCount" readonly />
+
+            <label for="incomePerDay">Income Per Day:</label>
+            <input type="number" id="incomePerDay" name="incomePerDay" readonly />
+
+            <button type="button" onclick="calculateFieldFromDate()">Calculate</button>
+
+            <label for="pastYearDays">Past FY Days:</label>
+            <input type="number" id="pastYearDays" readonly />
+
+            <label for="currentYearDays">Current FY Days:</label>
+            <input type="number" id="currentYearDays" readonly />
+
+            <label for="nextYearDays">Next FY Days:</label>
+            <input type="number" id="nextYearDays" readonly />
 
 
-        <label for="internet">Internet:</label>
-        <input type="number" id="internet" name="internet" readonly />
+            <h4>Current Fiscal Year Monthly Breakdown</h4>
+            <table>
+              <thead>
+                <tr>
+                  <th>Month</th>
+                  <th>Fiscal Days</th>
+                  <th>Income</th>
+                </tr>
+              </thead>
+              <tbody id="currentFYMonthlyBody">
 
-        <label for="serviceCharges">Service Charges:</label>
-        <input type="number" id="serviceCharges" name="serviceCharges" readonly />
+              </tbody>
+            </table>
+            
 
-        <label for="tsc">TSC (10% of Service Charges):</label>
-        <input type="number" id="tsc" name="tsc" readonly />
+<button type="button" onclick="generateMonthlyReport()">Generate Monthly Report</button>
 
-        <label for="vat">VAT (13% of above three):</label>
-        <input type="number" id="vat" name="vat" readonly />
+        </form>
+    </div>
 
-        <label for="abc">Other Expense:</label>
-        <input type="number" id="abc" name="abc" placeholder="Enter other expense" />
-
-        <label for="xyz">Other Expense:</label>
-        <input type="number" id="xyz" name="xyz" placeholder="Enter other expense" />
-
-        <label for="finalTotal">Final Total:</label>
-        <input type="number" id="finalTotal" name="finalTotal" readonly />
-
-        <button type="button" onclick="calculateFieldsFromTotal()">Calculate</button>
-    </form>
+    <script src="script.js"></script>
 </body>
 
 </html>

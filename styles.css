@@ -6,12 +6,21 @@ body {
     margin: 0;
     background-color: #f2f2f2;
 }
-#billingForm {
+#billingFormLeft {
     border: 2px solid #333;
     padding: 30px;
     border-radius: 10px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+#billingFormRight {
+    border: 2px solid #333;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 10px;
 }
 
 label {
@@ -32,3 +41,81 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+.container{
+    display: flex;
+}
+
+/* 
+
+
+<!-- <label for="internet">Internet:</label>
+<input type="number" id="internet" name="internet" readonly />
+
+<label for="serviceCharges">Service Charges:</label>
+<input type="number" id="serviceCharges" name="serviceCharges" readonly />
+
+<label for="tsc">TSC (10% of Service Charges):</label>
+<input type="number" id="tsc" name="tsc" readonly />
+
+<label for="vat">VAT (13% of above three):</label>
+<input type="number" id="vat" name="vat" readonly />
+
+<label for="abc">Other Expense:</label>
+<input type="number" id="abc" name="abc" placeholder="Enter other expense" />
+
+<label for="xyz">Other Expense:</label>
+<input type="number" id="xyz" name="xyz" placeholder="Enter other expense" />
+
+<label for="finalTotal">Final Total:</label>
+<input type="number" id="finalTotal" name="finalTotal" readonly /> --> */
+
+
+
+/* 
+function calculateFieldsFromTotal() {
+    const totalInput = parseFloat(document.getElementById('initialTotal').value) || 0;
+    const abc = parseFloat(document.getElementById('abc').value) || 0;
+    const xyz = parseFloat(document.getElementById('xyz').value) || 0;
+  
+    if (totalInput <= 0) {
+      alert("Please enter a valid initial total amount.");
+      return;
+    }
+  
+    const internet = totalInput / 2.373;
+    const serviceCharges = internet;
+    const tsc = serviceCharges * 0.10;
+    const mainVat = (internet + serviceCharges + tsc) * 0.13;
+  
+    const abcVat = abc * 0.13;
+    const xyzVat = xyz * 0.13;
+  
+    const finalTotal = internet + serviceCharges + tsc + mainVat + (abc + abcVat) + (xyz + xyzVat);
+  
+    document.getElementById('internet').value = internet.toFixed(2);
+    document.getElementById('serviceCharges').value = serviceCharges.toFixed(2);
+    document.getElementById('tsc').value = tsc.toFixed(2);
+    document.getElementById('vat').value = mainVat.toFixed(2);
+    document.getElementById('finalTotal').value = finalTotal.toFixed(2);
+  
+    calculateFieldFromDate();
+  }
+  
+  
+  
+  function calculateFieldFromDate() {
+    const internet = parseFloat(document.getElementById('internet').value) || 0;
+    const serviceCharges = parseFloat(document.getElementById('serviceCharges').value) || 0;
+    const abc = parseFloat(document.getElementById('abc').value) || 0;
+    const xyz = parseFloat(document.getElementById('xyz').value) || 0;
+  
+    const fullTotal = internet + serviceCharges + abc + xyz;
+    document.getElementById('fullTotalInput').value = fullTotal.toFixed(2);
+  
+    // Accessing the English date range
+    const dateFrom = document.getElementById('dateFrom').value;
+    const dateTo = document.getElementById('dateTo').value;
+  
+    console.log("Date range:", dateFrom, "to", dateTo);
+  }
+   */
